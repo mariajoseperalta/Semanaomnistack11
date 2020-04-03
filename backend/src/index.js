@@ -1,15 +1,18 @@
+
 const express = require('express');
 const cors = require('cors');
 //Pede para ir lá no corpo da requisição e converter Json em objeto de JavaScript!
 //./ quer dizer que estou passando um arquivo e não um pacote como o exemplo do express.
 const routes = require ('./routes');
 
-
 const app = express();
+
+app.use(cors({
+   origin:'http://localhost:3000'
+   }));
 app.use(express.json());
 app.use(routes);
 
-app.use(cors());
 
 
 
@@ -51,3 +54,5 @@ app.use(cors());
 
 
 app.listen(3333);
+
+
